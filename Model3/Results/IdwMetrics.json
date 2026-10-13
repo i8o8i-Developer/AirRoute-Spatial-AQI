@@ -1,0 +1,178 @@
+{
+  "best_hyperparameters": {
+    "k": 8,
+    "radius_km": 25.0,
+    "power": 1.0,
+    "best_val_mae": 24.26
+  },
+  "baselines_comparison": {
+    "tuned_idw": {
+      "k": 8,
+      "radius_km": 25.0,
+      "power": 1.0,
+      "val_mae": 24.26
+    },
+    "nearest_station_baseline": {
+      "mae": 35.0
+    },
+    "plain_mean_baseline": {
+      "mae": 23.5
+    }
+  },
+  "experiment_direct_vs_pollutant_first": {
+    "direct_aqi_interpolation": {
+      "model_label": "Direct_AQI_IDW",
+      "sample_count": 25053,
+      "mae": 24.7,
+      "rmse": 38.03,
+      "r2": 0.8941,
+      "category_accuracy_pct": 77.87,
+      "tolerance_within_10_pct": 33.72,
+      "tolerance_within_20_pct": 56.89,
+      "tolerance_within_30_pct": 71.53
+    },
+    "pollutant_first_interpolation": {
+      "model_label": "Pollutant_First_IDW",
+      "sample_count": 25053,
+      "mae": 24.35,
+      "rmse": 39.75,
+      "r2": 0.8843,
+      "category_accuracy_pct": 78.92,
+      "tolerance_within_10_pct": 38.54,
+      "tolerance_within_20_pct": 59.11,
+      "tolerance_within_30_pct": 71.75
+    },
+    "mae_difference": 0.35,
+    "scientific_rationale": "Direct AQI Interpolation Estimates The Scalar Index Directly And Smooths Outlier Spikes. Pollutant-First Interpolation Estimates PM2.5 And PM10 Physical Mass Concentrations Prior To Passing Them Through The Piecewise CPCB NAQI Aggregation Formula. Pollutant-First Interpolation Aligns With Physical Atmospheric Stoichiometry While Direct AQI Interpolation Yields Lower Root Mean Squared Error."
+  },
+  "training_partition_metrics": {
+    "overall": {
+      "model_label": "IDW_Overall",
+      "sample_count": 25053,
+      "mae": 24.7,
+      "rmse": 38.03,
+      "r2": 0.8941,
+      "category_accuracy_pct": 77.87,
+      "tolerance_within_10_pct": 33.72,
+      "tolerance_within_20_pct": 56.89,
+      "tolerance_within_30_pct": 71.53
+    },
+    "rush_hours": {
+      "model_label": "Rush_Hours",
+      "sample_count": 9394,
+      "mae": 23.25,
+      "rmse": 33.05,
+      "r2": 0.9068,
+      "category_accuracy_pct": 77.53,
+      "tolerance_within_10_pct": 34.23,
+      "tolerance_within_20_pct": 58.54,
+      "tolerance_within_30_pct": 72.84
+    },
+    "off_peak_hours": {
+      "model_label": "Off_Peak_Hours",
+      "sample_count": 15659,
+      "mae": 25.57,
+      "rmse": 40.73,
+      "r2": 0.8877,
+      "category_accuracy_pct": 78.08,
+      "tolerance_within_10_pct": 33.42,
+      "tolerance_within_20_pct": 55.9,
+      "tolerance_within_30_pct": 70.75
+    },
+    "severe_episodes": {
+      "model_label": "Severe_Episodes_AQI_gt_300",
+      "sample_count": 17593,
+      "mae": 23.17,
+      "rmse": 37.69,
+      "r2": 0.6552,
+      "category_accuracy_pct": 81.45,
+      "tolerance_within_10_pct": 36.52,
+      "tolerance_within_20_pct": 60.19,
+      "tolerance_within_30_pct": 74.31
+    },
+    "normal_days": {
+      "model_label": "Normal_Days_AQI_le_300",
+      "sample_count": 7460,
+      "mae": 28.31,
+      "rmse": 38.83,
+      "r2": 0.7133,
+      "category_accuracy_pct": 69.44,
+      "tolerance_within_10_pct": 27.13,
+      "tolerance_within_20_pct": 49.12,
+      "tolerance_within_30_pct": 64.97
+    },
+    "spatial_autocorrelation": {
+      "morans_i": -0.1196,
+      "expected_i": -0.0357,
+      "spatial_structure_detected": false
+    }
+  },
+  "unseen_holdout_test_metrics": {
+    "overall": {
+      "model_label": "IDW_Overall",
+      "sample_count": 13824,
+      "mae": 27.63,
+      "rmse": 39.57,
+      "r2": 0.8551,
+      "category_accuracy_pct": 78.65,
+      "tolerance_within_10_pct": 28.64,
+      "tolerance_within_20_pct": 50.46,
+      "tolerance_within_30_pct": 65.65
+    },
+    "rush_hours": {
+      "model_label": "Rush_Hours",
+      "sample_count": 5184,
+      "mae": 27.29,
+      "rmse": 37.55,
+      "r2": 0.8363,
+      "category_accuracy_pct": 77.01,
+      "tolerance_within_10_pct": 27.33,
+      "tolerance_within_20_pct": 49.67,
+      "tolerance_within_30_pct": 64.97
+    },
+    "off_peak_hours": {
+      "model_label": "Off_Peak_Hours",
+      "sample_count": 8640,
+      "mae": 27.84,
+      "rmse": 40.74,
+      "r2": 0.8625,
+      "category_accuracy_pct": 79.64,
+      "tolerance_within_10_pct": 29.42,
+      "tolerance_within_20_pct": 50.93,
+      "tolerance_within_30_pct": 66.05
+    },
+    "severe_episodes": {
+      "model_label": "Severe_Episodes_AQI_gt_300",
+      "sample_count": 11307,
+      "mae": 25.76,
+      "rmse": 37.57,
+      "r2": 0.6767,
+      "category_accuracy_pct": 82.36,
+      "tolerance_within_10_pct": 30.65,
+      "tolerance_within_20_pct": 53.0,
+      "tolerance_within_30_pct": 68.24
+    },
+    "normal_days": {
+      "model_label": "Normal_Days_AQI_le_300",
+      "sample_count": 2517,
+      "mae": 36.07,
+      "rmse": 47.53,
+      "r2": 0.5323,
+      "category_accuracy_pct": 61.98,
+      "tolerance_within_10_pct": 19.59,
+      "tolerance_within_20_pct": 39.01,
+      "tolerance_within_30_pct": 53.99
+    },
+    "spatial_autocorrelation": {
+      "morans_i": -0.0922,
+      "expected_i": -0.0286,
+      "spatial_structure_detected": false
+    }
+  },
+  "plots_generated": [
+    "C:\\Users\\i8o8i\\OneDrive\\Desktop\\UDRAH IDUSTRIES WORK\\Model3\\Results\\Plots\\ErrorByStation.png",
+    "C:\\Users\\i8o8i\\OneDrive\\Desktop\\UDRAH IDUSTRIES WORK\\Model3\\Results\\Plots\\ErrorByHour.png",
+    "C:\\Users\\i8o8i\\OneDrive\\Desktop\\UDRAH IDUSTRIES WORK\\Model3\\Results\\Plots\\PredictedVsActual.png",
+    "C:\\Users\\i8o8i\\OneDrive\\Desktop\\UDRAH IDUSTRIES WORK\\Model3\\Results\\Plots\\StationResidualMap.png"
+  ]
+}
